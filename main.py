@@ -1,66 +1,3 @@
-# from tkinter import *
-#
-#
-# w = Tk()
-# w.title("Shopping App CSE 224")
-#
-#
-# # w.geometry("400x250+500+100")
-# def login(login):
-#     if login == 0:
-#         login = 1
-#         print(login)
-#
-# text = Label(w)
-# text.config(text="Welcome!", font="bold", height="5")
-# text.pack()
-#
-# button = Button(w)
-# button.config(height="2", width="20", font="bold", text="Start Shopping", command=login(login))
-# button.pack(side="right")
-# button2 = Button(w)
-# button2.config(text="Visit", height="2", width="20", font="bold")
-# button2.pack(side="left")
-# login = 0
-# if login == 1:
-#     but = Button(w)
-#     but.config(width="20", font="bold", text="test")
-#     but.pack(side="top")
-# mainloop()
-# import tkinter
-#
-# window = tkinter.Tk()
-#
-#
-# def page1():
-#     text = tkinter.Label(window)
-#     text.config(text="Welcome!", font="bold", height="5")
-#     text.pack()
-#
-#     button = tkinter.Button(window)
-#     button.config(height="2", width="20", font="bold", text="Start Shopping")
-#     button.pack(side="right")
-#     button2 = tkinter.Button(window)
-#     button2.config(text="Visit", height="2", width="20", font="bold")
-#     button2.pack(side="left")
-#
-#
-# def page2():
-#     page1text.pack_forget()
-#     page2text.pack()
-#
-#
-# page1btn = tkinter.Button(window, text="Page 1", command=page1)
-# page2btn = tkinter.Button(window, text="Page 2", command=page2)
-#
-# page1text = tkinter.Label(window, text="This is page 1")
-# page2text = tkinter.Label(window, text="This is page 2")
-#
-# page1btn.pack()
-# page2btn.pack()
-# page1text.pack()
-# window.mainloop()
-
 import pymysql
 
 db = pymysql.connect("localhost", "root", "", "cse224")
@@ -82,8 +19,8 @@ def signup():
 
 def login():
     v = 0
-    r = 3
-    for i in range(0, 2):
+    r = 4
+    for i in range(0, 3):
         r -= 1
         userName = input("Kullanıcı adı giriniz.")
         password = input("Şifre giriniz.")
@@ -95,7 +32,7 @@ def login():
                 v = 1
                 break
             else:
-                print("Başarısız giriş, '%s' hakkın kaldı" % r)
+                print("Başarısız giriş, '%s' hakkın kaldı" % (r-1))
                 v = 0
             db.commit()
         except:
